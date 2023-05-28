@@ -9,9 +9,9 @@ public interface IElementoService {
 
     public List<Elemento> listarElemento();
 
-    public void guardar(Elemento elem);
+    public void guardarElemento(Elemento elem);
 
-    public Optional<Elemento> editar(int id);
+    public Optional<Elemento> editarElemento(int id);
 
-    public void eliminar(int id);
+    public void eliminarElemento(int id);
 }

@@ -16,7 +16,7 @@ public class ControladorSala {
     @Autowired
     private ISalaService service;
 
-    @GetMapping("/")
+    @GetMapping("/listarSala")
     public String listarSala(Model model){
 
 
@@ -25,31 +25,31 @@ public class ControladorSala {
 
         List<Sala> sala = service.listarSala();
 
-        model.addAttribute("datos", sala);
+        model.addAttribute("datosSala", sala);
 
-        return "";
+        return "indexSal";
     }
-    @GetMapping("/")
-    public String agregar(Model model){
+    @GetMapping("/nuevoSala")
+    public String agregarSala(Model model){
         model.addAttribute("titulo","Nueva Sala");
         model.addAttribute("cuerpo", "Sala Nueva");
         model.addAttribute("persona", new Sala());
-        return "";
+        return "Sal";
     }
-    @PostMapping("/")
-    public String guardar(@ModelAttribute Sala sal){
-        service.guardar(sal);
-        return "redirect:/";
-    }
-    @GetMapping("/editar/{id}")
-    public String editarElemento(@PathVariable("id") int id, Model model){
-        model.addAttribute("sala", service.editar(id));
-        return "";
-    }
-    @GetMapping("/eliminar/{id}")
-    public String eliminarElemento(@PathVariable("id") int id, Model model){
-        service.eliminar(id);
-        return "redirect:/";
+    @PostMapping("/guardarSala")
+    public String guardarSala(@ModelAttribute Sala sal){
+        service.guardarSala(sal);
+        return "redirect:/listarSala";
     }
 
+    @GetMapping("/editarSala/{id}")
+    public String editarSala(@PathVariable("id") int id, Model model){
+        model.addAttribute("sala", service.editarSala(id));
+        return "Sal";
+    }
+    @GetMapping("/eliminarSala/{id}")
+    public String eliminarSala(@PathVariable("id") int id, Model model){
+        service.eliminarSala(id);
+        return "redirect:/listarSala";
+    }
 }

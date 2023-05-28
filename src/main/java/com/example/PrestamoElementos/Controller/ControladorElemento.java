@@ -16,7 +16,7 @@ public class ControladorElemento {
     @Autowired
     private IElementoService serv;
 
-    @GetMapping("/listar")
+    @GetMapping("/listarElemento")
     public String listarElemeto(Model model){
 
 
@@ -25,30 +25,30 @@ public class ControladorElemento {
 
         List<Elemento> elements = serv.listarElemento();
 
-        model.addAttribute("datos", elements);
+        model.addAttribute("datosElemento", elements);
 
         return "index";
     }
-    @GetMapping("/nuevo")
-    public String agregar(Model model){
+    @GetMapping("/nuevoElemento")
+    public String agregarElemento(Model model){
         model.addAttribute("titulo","Nuevo Elemento");
         model.addAttribute("cuerpo", "Elemento Nuevo");
-        model.addAttribute("persona", new Elemento());
-        return "elemento";
+        model.addAttribute("elemento", new Elemento());
+        return "Element";
     }
-    @PostMapping("/guardar")
-    public String guardar(@ModelAttribute Elemento elem){
-        serv.guardar(elem);
-        return "redirect:/listar";
+    @PostMapping("/guardarElemento")
+    public String guardarElemento(@ModelAttribute Elemento elem){
+        serv.guardarElemento(elem);
+        return "redirect:/listarElemento";
     }
-    @GetMapping("/editar/{id}")
+    @GetMapping("/editarElemento/{id}")
     public String editarElemento(@PathVariable("id") int id, Model model){
-        model.addAttribute("elemento", serv.editar(id));
-        return "elemento";
+        model.addAttribute("elemento", serv.editarElemento(id));
+        return "Element";
     }
-    @GetMapping("/eliminar/{id}")
+    @GetMapping("/eliminarElemento/{id}")
     public String eliminarElemento(@PathVariable("id") int id, Model model){
-        serv.eliminar(id);
-        return "redirect:/listar";
+        serv.eliminarElemento(id);
+        return "redirect:/listarElemento";
     }
 }

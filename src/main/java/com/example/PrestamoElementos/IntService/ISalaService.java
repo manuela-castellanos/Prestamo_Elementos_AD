@@ -8,9 +8,9 @@ import java.util.Optional;
 public interface ISalaService {
     public List<Sala> listarSala();
 
-    public void guardar(Sala sal);
+    public void guardarSala(Sala sal);
 
-    public Optional<Sala> editar(int id);
+    public Optional<Sala> editarSala(int id);
 
-    public void eliminar(int id);
+    public void eliminarSala(int id);
 }

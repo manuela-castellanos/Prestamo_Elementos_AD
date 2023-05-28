@@ -21,17 +21,17 @@ public class ElementoService implements IElementoService {
     }
 
     @Override
-    public void guardar(Elemento elem) {
+    public void guardarElemento(Elemento elem) {
         data.save(elem);
     }
 
     @Override
-    public Optional<Elemento> editar(int id) {
+    public Optional<Elemento> editarElemento(int id) {
         return data.findById(id);
     }
 
     @Override
-    public void eliminar(int id) {
+    public void eliminarElemento(int id) {
         data.deleteById(id);
     }
 }

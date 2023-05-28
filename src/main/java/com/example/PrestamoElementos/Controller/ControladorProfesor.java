@@ -16,7 +16,7 @@ public class ControladorProfesor {
     @Autowired
     private IProfesorService servi;
 
-    @GetMapping("/")
+    @GetMapping("/listarProfesor")
     public String listarProfesor(Model model){
 
 
@@ -25,30 +25,31 @@ public class ControladorProfesor {
 
         List<Profesor> profesor = servi.listarProfesor();
 
-        model.addAttribute("datos", profesor);
+        model.addAttribute("datosProfesor", profesor);
 
-        return "";
+        return "indexProf";
     }
-    @GetMapping("/")
-    public String agregar(Model model){
+    @GetMapping("/nuevoProfesor")
+    public String agregarProfesor(Model model){
         model.addAttribute("titulo","Nuevo Profesor");
         model.addAttribute("cuerpo", "Profesor Nuevo");
-        model.addAttribute("persona", new Profesor());
-        return "";
+        model.addAttribute("profesor", new Profesor());
+        return "Profe";
     }
-    @PostMapping("/")
-    public String guardar(@ModelAttribute Profesor prof){
-        servi.guardar(prof);
-        return "redirect:/";
+
+    @PostMapping("/guardarProfesor")
+    public String guardarProfesor(@ModelAttribute Profesor prof){
+        servi.guardarProfesor(prof);
+        return "redirect:/listarProfesor";
     }
-    @GetMapping("/editar/{id}")
-    public String editarElemento(@PathVariable("id") int id, Model model){
-        model.addAttribute("profesor", servi.editar(id));
-        return "";
+    @GetMapping("/editarProfesor/{id}")
+    public String editarProfesor(@PathVariable("id") int id, Model model){
+        model.addAttribute("profesor", servi.editarProfesor(id));
+        return "Profe";
     }
-    @GetMapping("/eliminar/{id}")
-    public String eliminarElemento(@PathVariable("id") int id, Model model){
-        servi.eliminar(id);
-        return "redirect:/";
+    @GetMapping("/eliminarProfesor/{id}")
+    public String eliminarProfesor(@PathVariable("id") int id, Model model){
+        servi.eliminarProfesor(id);
+        return "redirect:/listarProfesor";
     }
 }

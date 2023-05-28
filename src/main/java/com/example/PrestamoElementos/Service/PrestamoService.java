@@ -21,17 +21,17 @@ public class PrestamoService implements IPrestamoService{
     }
 
     @Override
-    public void guardar(Prestamo pres) {
+    public void guardarPrestamo(Prestamo pres) {
         data.save(pres);
     }
 
     @Override
-    public Optional<Prestamo> editar(int id) {
+    public Optional<Prestamo> editarPrestamo(int id) {
         return data.findById(id);
     }
 
     @Override
-    public void eliminar(int id) {
+    public void eliminarPrestamo(int id) {
         data.deleteById(id);
     }
 

@@ -8,9 +8,9 @@ import java.util.Optional;
 public interface IPrestamoService {
     public List<Prestamo> listarPrestamo();
 
-    public void guardar(Prestamo pres);
+    public void guardarPrestamo(Prestamo pres);
 
-    public Optional<Prestamo> editar(int id);
+    public Optional<Prestamo> editarPrestamo(int id);
 
-    public void eliminar(int id);
+    public void eliminarPrestamo(int id);
 }

@@ -21,17 +21,17 @@ public class ProfesorService implements IProfesorService{
     }
 
     @Override
-    public void guardar(Profesor prof) {
+    public void guardarProfesor(Profesor prof) {
         data.save(prof);
     }
 
     @Override
-    public Optional<Profesor> editar(int id) {
+    public Optional<Profesor> editarProfesor(int id) {
         return data.findById(id);
     }
 
     @Override
-    public void eliminar(int id) {
+    public void eliminarProfesor(int id) {
         data.deleteById(id);
     }
 }

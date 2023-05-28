@@ -21,17 +21,17 @@ public class SalaService implements ISalaService {
     }
 
     @Override
-    public void guardar(Sala sal) {
+    public void guardarSala(Sala sal) {
         data.save(sal);
     }
 
     @Override
-    public Optional<Sala> editar(int id) {
+    public Optional<Sala> editarSala(int id) {
         return data.findById(id);
     }
 
     @Override
-    public void eliminar(int id) {
+    public void eliminarSala(int id) {
         data.deleteById(id);
     }
 }

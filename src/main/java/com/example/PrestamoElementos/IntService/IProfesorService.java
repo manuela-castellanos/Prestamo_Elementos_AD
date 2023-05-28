@@ -8,9 +8,9 @@ import java.util.Optional;
 public interface IProfesorService {
     public List<Profesor> listarProfesor();
 
-    public void guardar(Profesor prof);
+    public void guardarProfesor(Profesor prof);
 
-    public Optional<Profesor> editar(int id);
+    public Optional<Profesor> editarProfesor(int id);
 
-    public void eliminar(int id);
+    public void eliminarProfesor(int id);
 }

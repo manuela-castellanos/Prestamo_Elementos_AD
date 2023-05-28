@@ -16,7 +16,7 @@ public class ControladorPrestamo {
     @Autowired
     private IPrestamoService ser;
 
-    @GetMapping("/mostrar")
+    @GetMapping("/listarPrestamo")
     public String listarPrestamo(Model model){
 
 
@@ -25,30 +25,31 @@ public class ControladorPrestamo {
 
         List<Prestamo> prestamo = ser.listarPrestamo();
 
-        model.addAttribute("datos", prestamo);
+        model.addAttribute("datosPrestamo", prestamo);
 
-        return "lis";
+        return "indexPres";
     }
-    @GetMapping("/nv")
-    public String agregar(Model model){
+    @GetMapping("/nuevoPrestamo")
+    public String agregarPrestamo(Model model){
         model.addAttribute("titulo","Nuevo Elemento");
         model.addAttribute("cuerpo", "Elemento Nuevo");
-        model.addAttribute("persona", new Prestamo());
-        return "";
+        model.addAttribute("prestamo", new Prestamo());
+        return "Prest";
     }
-    @PostMapping("/gd")
-    public String guardar(@ModelAttribute Prestamo pres){
-        ser.guardar(pres);
-        return "redirect:/lis";
+    @PostMapping("/guardarPrestamo")
+    public String guardarPrestamo(@ModelAttribute Prestamo pres){
+        ser.guardarPrestamo(pres);
+        return "redirect:/listarPrestamo";
     }
-    @GetMapping("/editar/{id}")
-    public String editarElemento(@PathVariable("id") int id, Model model){
-        model.addAttribute("prestamo", ser.editar(id));
-        return "";
+
+    @GetMapping("/editarPrestamo/{id}")
+    public String editarPrestamo(@PathVariable("id") int id, Model model){
+        model.addAttribute("prestamo", ser.editarPrestamo(id));
+        return "Prest";
     }
-    @GetMapping("/eliminar/{id}")
-    public String eliminarElemento(@PathVariable("id") int id, Model model){
-        ser.eliminar(id);
-        return "redirect:/lis";
+    @GetMapping("/eliminarPrestamo/{id}")
+    public String eliminarPrestamo(@PathVariable("id") int id, Model model){
+        ser.eliminarPrestamo(id);
+        return "redirect:/listarPrestamo";
     }
 }
