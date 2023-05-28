@@ -10,7 +10,8 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class PrestamoService implements IPrestamoService{
+public class
+PrestamoService implements IPrestamoService{
 
     @Autowired
     private IPrestamo data;
