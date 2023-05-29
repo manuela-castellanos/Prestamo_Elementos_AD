@@ -21,7 +21,7 @@ public class ControladorPrestamo {
 
 
         model.addAttribute("titulo", "Prestamo Elementos");
-        model.addAttribute("cuerpo", "Prestamo");
+        model.addAttribute("cuerpo", "PRESTAMO");
 
         List<Prestamo> prestamo = ser.listarPrestamo();
 

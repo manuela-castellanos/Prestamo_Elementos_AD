@@ -17,11 +17,11 @@ public class ControladorElemento {
     private IElementoService serv;
 
     @GetMapping("/listarElemento")
-    public String listarElemeto(Model model) {
+    public String listarElemento(Model model) {
 
 
         model.addAttribute("titulo", "Prestamo Elementos");
-        model.addAttribute("cuerpo", "Elementos");
+        model.addAttribute("cuerpo", "ELEMENTOS");
 
         List<Elemento> elements = serv.listarElemento();
 
