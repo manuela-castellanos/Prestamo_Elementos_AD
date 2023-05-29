@@ -32,7 +32,7 @@ public class ControladorPrestamo {
     @GetMapping("/nuevoPrestamo")
     public String agregarPrestamo(Model model){
         model.addAttribute("titulo","Nuevo Elemento");
-        model.addAttribute("cuerpo", "Elemento Nuevo");
+        model.addAttribute("cuerpo", "Prestamo Nuevo");
         model.addAttribute("prestamo", new Prestamo());
         return "Prest";
     }
