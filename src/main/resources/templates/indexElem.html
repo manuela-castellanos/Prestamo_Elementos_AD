@@ -32,34 +32,34 @@
 <br>
 <h3 style="text-align:center" th:text="${cuerpo}"></h3>
 <br>
-<div class="container mt-4">
-    <div class="row">
-        <div class="col-sm-6 container justify-contant-center">
-            <form th:action="@{/guardarSala}" th:object="${sala}" method="post">
-                <input type="hidden" th:field="*{idsala}">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 align="center">Módulo Sala</h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="form-group">
-                            <label>Tipo Sala</label>
-                            <input class="form-control" type="text" th:field="*{tiposala}" required="true"
-                                   name="tiposala" placeholder="Ingrese El Tipo De Sala">
-                        </div>
-                        <br>
-                        <div class="card-footer" align="center">
-                            <button class="btn btn-success">Guardar</button>
-                        </div>
-                    </div>
-                </div>
-            </form>
-            <br>
-            <a aling="center" th:href="@{/listarSala}" class="btn btn-primary">Atras</a>
-            <br>
-        </div>
-    </div>
+<div class="container">
+    <table class="table">
+        <thead class="table-dark">
+        <tr>
+            <th>Id Elemento</th>
+            <th>Tipo Elemento</th>
+            <th>Numero Cantidad</th>
+            <th>Estado</th>
+            <th>Sala</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+
+        <tbody th:each="temList: ${datosElemento}">
+        <tr>
+            <td th:text="${temList.idelemento}"></td>
+            <td th:text="${temList.tipoelemento}"></td>
+            <td th:text="${temList.numcantidad}"></td>
+            <td th:text="${temList.estado}"></td>
+            <td th:text="${temList.sala}"></td>
+            <td>
+                <a th:href="@{/editarElemento/} + ${temList.idelemento}" class="btn btn-warning">Editar</a>
+                <a th:href="@{/eliminarElemento/} + ${temList.idelemento}" class="btn btn-danger">Eliminar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/nuevoElemento}" class="btn btn-primary">Nuevo</a>
 </div>
-<br>
 </body>
 </html>

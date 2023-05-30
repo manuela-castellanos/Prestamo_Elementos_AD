@@ -21,7 +21,7 @@ public class ControladorSala {
 
 
         model.addAttribute("titulo", "Prestamo Elementos");
-        model.addAttribute("cuerpo", "Sala");
+        model.addAttribute("cuerpo", "SALA");
 
         List<Sala> sala = service.listarSala();
 
@@ -33,7 +33,7 @@ public class ControladorSala {
     public String agregarSala(Model model){
         model.addAttribute("titulo","Nueva Sala");
         model.addAttribute("cuerpo", "Sala Nueva");
-        model.addAttribute("persona", new Sala());
+        model.addAttribute("sala", new Sala());
         return "Sal";
     }
     @PostMapping("/guardarSala")

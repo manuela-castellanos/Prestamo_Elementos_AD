@@ -21,7 +21,7 @@ public class ControladorProfesor {
 
 
         model.addAttribute("titulo", "Prestamo Elementos");
-        model.addAttribute("cuerpo", "Profesores");
+        model.addAttribute("cuerpo", "PROFESORES");
 
         List<Profesor> profesor = servi.listarProfesor();
 

@@ -9,27 +9,25 @@
 </head>
 <body>
 
-<nav class="navbar bg-dark navbar-expand-lg navbar-dark ">
+<nav class="navbar navbar-dark bg-dark navbar navbar-expand-lg navbar-light bg-light ">
     <div class="container-fluid">
-        <a href="" class="navbar-brand text-info fw-semibold fs-4">Prestamo Elementos</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#Elemento">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <section class="offcanvas offcanvas-start bg-dark" id="Elemento" tabindex="-1">
-            <div class="offcanvas-header" data-bs-theme="dark">
-                <h5>Prestamo Elementos</h5>
-                <button class="btn-close" type="button" aria-label="Close" data-bs-dismiss="offcanvas"></button>
-            </div>
-            <div class="offcanvas-body d-flex flex-column justify-content- between px-0">
-                <ul class="navbar-nav fs-5 justify-content-evenly">
-                    <li class="nav-item p-3 py-md-1"><a href="" class="nav-link">Elemento</a></li>
-                    <li class="nav-item p-3 py-md-1"><a href="" class="nav-link">Prestamo</a></li>
-                    <li class="nav-item p-3 py-md-1"><a href="" class="nav-link">Profesor</a></li>
-                    <li class="nav-item p-3 py-md-1"><a href="" class="nav-link">Sala</a></li>
-                </ul>
-            </div>
-        </section>
+        <h2 class="navbar-brand text-info fw-semibold fs-4" >PE</h2>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item p-3 py-md-1">
+                    <a class="nav-link" th:href="@{/listarElemento}">Inicio</a>
+                </li>
+                <li class="nav-item p-3 py-md-1">
+                    <a class="nav-link" th:href="@{/listarPrestamo}">Prestamo</a>
+                </li>
+                <li class="nav-item p-3 py-md-1">
+                    <a class="nav-link" th:href="@{/listarProfesor}">Profesor</a>
+                </li>
+                <li class="nav-item p-3 py-md-1">
+                    <a class="nav-link" th:href="@{/listarSala}">Sala</a>
+                </li>
+            </ul>
+        </div>
     </div>
 </nav>
 <br>
@@ -38,7 +36,7 @@
 <div class="container mt-4">
     <div class="row">
         <div class="col-sm-6 container justify-contant-center">
-            <form th:action="@{/Prestamo/guardarPrestamo}" th:object="${prestamo}" method="post">
+            <form th:action="@{/guardarPrestamo}" th:object="${prestamo}" method="post">
                 <input type="hidden" th:field="*{idprestamo}">
                 <div class="card">
                     <div class="card-header">
@@ -59,18 +57,6 @@
                                    placeholder="Ingrese Fecha/Hora De La Devolución">
                         </div>
                         <br>
-                        <div class="form-group">
-                            <label>Profesor</label>
-                            <input class="form-control" type="text" th:field="*{profesor}" required="true"
-                                   name="profesor" placeholder="Ingrese Id Profesor">
-                        </div>
-                        <br>
-                        <div class="form-group">
-                            <label>Elemento</label>
-                            <input class="form-control" type="text" th:field="*{elemento}" required="true"
-                                   name="elemento" placeholder="Ingrese Id Elemento">
-                        </div>
-                        <br>
                         <div class="card-footer" align="center">
                             <button class="btn btn-success">Guardar</button>
                         </div>
@@ -78,8 +64,7 @@
                 </div>
             </form>
             <br>
-            <button align="center" th:href="@{/ControladorPrestamo/listarPrestamo}" class="btn btn-primary">Atras
-            </button>
+            <a aling="center" th:href="@{/listarPrestamo}" class="btn btn-primary">Atras</a>
             <br>
         </div>
     </div>
