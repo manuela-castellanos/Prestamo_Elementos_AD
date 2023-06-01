@@ -53,8 +53,13 @@
                         <div class="form-group">
                             <label>Fecha / Hora Devolución</label>
                             <input class="form-control" type="datetime-local" th:field="*{fechahoradevolucion}"
-                                   required="true" name="fechahoradevolucion"
                                    placeholder="Ingrese Fecha/Hora De La Devolución">
+                        </div>
+                        <br>
+                        <div class="form-group">
+                        <label>Profesor</label>
+                        <input class="form-control" type="text" th:field="*{profesor}" required="true" name="profesor"
+                               placeholder="Ingrese id del profesor">
                         </div>
                         <br>
                         <div class="card-footer" align="center">
